@@ -1,0 +1,29 @@
+.menu-container {
+  width: 500px;
+  background-color: antiquewhite;
+  display: flex;
+  align-items: center;
+  padding: 0px;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+.menu-icon {
+  content: "";
+  width: 70px;
+  height: 70px;
+  background-color: black;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+.menu-text {
+  margin: 0;
+  line-height: 70%;
+}
+
+.menu-title {
+  text-transform: uppercase;
+  font-size: 40px;
+}
