@@ -1,6 +1,6 @@
-import "../assets/styles/MainMenu.css";
+import "../assets/styles/MainMenuComponent.css";
 
-function MainMenu(props) {
+function MainMenuComponent(props) {
   return (
     <div className="menu-container">
       <div className="menu-icon"></div>
@@ -12,4 +12,4 @@ function MainMenu(props) {
   );
 }
 
-export default MainMenu;
+export default MainMenuComponent;

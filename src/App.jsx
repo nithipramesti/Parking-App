@@ -1,47 +1,23 @@
-import { useState } from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+
 import "./App.css";
 import MainSidebar from "./component/MainSidebar";
-import MainMenu from "./component/MainMenu";
+import CarIn from "./pages/CarIn";
+import MainMenu from "./pages/MainMenu";
 
 function App() {
-  const [mainMenu, setMainMenu] = useState([
-    {
-      menu: "Car In",
-      subMenu: "Find available space and generate ticket",
-      icon: "car",
-    },
-    {
-      menu: "Car Out",
-      subMenu: "Check-out car & payment",
-      icon: "car",
-    },
-    {
-      menu: "Status",
-      subMenu: "Check available parking space",
-      icon: "car",
-    },
-    {
-      menu: "Profit",
-      subMenu: "Check current profit",
-      icon: "car",
-    },
-    {
-      menu: "App",
-      subMenu: "Exit app",
-      icon: "car",
-    },
-  ]);
-
-  const renderMainMenu = () => {
-    return mainMenu.map((val) => {
-      return <MainMenu title={val.menu} subTitle={val.subMenu} />;
-    });
-  };
   return (
-    <div className="main-container">
-      <MainSidebar />
-      <div className="display-right">{renderMainMenu()}</div>
-    </div>
+    <BrowserRouter>
+      <div className="main-container">
+        <MainMenu />
+        <div className="display-right">
+          <Switch>
+            <Route component={CarIn} path="/car-in" />
+            <Route component={MainMenu} path="/" />
+          </Switch>
+        </div>
+      </div>
+    </BrowserRouter>
   );
 }
 

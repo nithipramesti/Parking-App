@@ -1,0 +1,74 @@
+.carIn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* PARKING SPACE */
+
+.parkingSpace {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.parkingUnit {
+  border: 3px solid #a1a1a1;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  width: 75px;
+  height: 75px;
+}
+
+.fill-true {
+  background-color: #a1a1a1;
+  color: #ffffff;
+}
+
+/* BUTTON */
+
+.btn-ticket {
+  font-family: inherit;
+  font-size: 18px;
+  text-transform: uppercase;
+  padding: 15px 30px;
+  color: #ffffff;
+  border: none;
+  border-radius: 15px;
+  background-color: #3b507b;
+  cursor: pointer;
+}
+
+.ticket {
+  position: absolute;
+  top: 0;
+  background-color: #ffffff;
+  text-align: center;
+  padding: 50px 25px;
+}
+
+.display-false {
+  display: none;
+}
+
+.ticket p {
+  font-size: 14px;
+}
+
+.ticket header {
+  line-height: 0;
+  margin-bottom: 40px;
+}
+
+.ticket header p {
+  font-size: 20px;
+}
+
+#time-come {
+  font-size: 38px;
+  font-weight: 400;
+}

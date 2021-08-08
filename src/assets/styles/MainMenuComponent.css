@@ -1,0 +1,50 @@
+.menu-container {
+  color: #ffffff;
+  box-sizing: border-box;
+  width: 330px;
+  /* box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); */
+  display: flex;
+  align-items: center;
+  padding: 0px;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.menu-icon {
+  content: "";
+  width: 35px;
+  height: 35px;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+.menu-text {
+  margin: 0;
+  line-height: 70%;
+}
+
+.menu-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.menu-subTitle {
+  display: none;
+  color: #656565;
+  font-size: 14px;
+}
+
+/* ----------  */
+/* HOVER STYLE */
+
+.menu-container:hover {
+  color: #3b507b;
+  background-color: #ffffff;
+}
+
+/* .menu-container:hover .menu-icon {
+  background-color: #3b507b;
+} */
