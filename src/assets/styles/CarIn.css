@@ -24,14 +24,14 @@
   height: 75px;
 }
 
-.fill-true {
+.filled-true {
   background-color: #a1a1a1;
   color: #ffffff;
 }
 
 /* BUTTON */
 
-.btn-ticket {
+button {
   font-family: inherit;
   font-size: 18px;
   text-transform: uppercase;

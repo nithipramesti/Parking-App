@@ -1,34 +1,34 @@
-import { useState } from "react";
+import Axios from "axios";
+import { useEffect, useState } from "react";
 import "../assets/styles/CarIn.css";
 
 function CarIn() {
-  const [parkingSpace, setParkingSpace] = useState([
-    { no: 1, fill: true, hour: 4 },
-    { no: 2, fill: true, hour: 3 },
-    { no: 3, fill: true, hour: 1 },
-    { no: 4, fill: false, hour: 0 },
-    { no: 5, fill: true, hour: 3 },
-    { no: 6, fill: false, hour: 0 },
-    { no: 7, fill: false, hour: 0 },
-    { no: 8, fill: true, hour: 7 },
-  ]);
+  const [parkingSpace, setParkingSpace] = useState([]);
   const [ticketDisplay, setTicketDisplay] = useState(false);
+
+  const fetchParkingSpace = () => {
+    Axios.get("http://localhost:2000/parkingSpace")
+      .then((res) => {
+        setParkingSpace(res.data);
+      })
+      .catch((err) => console.log(err));
+  };
 
   const renderParkingSpace = () => {
     return parkingSpace.map((val) => {
       return (
-        <div className={`parkingUnit fill-${val.fill}`}>
-          <p>{val.no}</p>
+        <div className={`parkingUnit filled-${val.filled}`}>
+          <p>{val.id}</p>
         </div>
       );
     });
   };
 
   const findNearestSpace = () => {
-    return parkingSpace.findIndex((val) => val.fill === false);
+    return parkingSpace.findIndex((val) => val.filled === false) + 1;
   };
 
-  const generateTicket = () => {
+  const generateTicket = (id) => {
     const timeCome = document.querySelector("#time-come");
     const dateCome = document.querySelector("#date-come");
     const parkingNo = document.querySelector("#parking-no span");
@@ -46,16 +46,32 @@ function CarIn() {
     dateCome.innerHTML = `${dateNow}/${monthNow + 1}/${yearNow}`;
 
     //Parking slot no
-    parkingNo.innerHTML = findNearestSpace() + 1;
+    parkingNo.innerHTML = findNearestSpace();
+
+    //fill the space
+    Axios.patch(`http://localhost:2000/parkingSpace/${id}`, {
+      filled: true,
+    })
+      .then(() => {
+        fetchParkingSpace();
+      })
+      .catch((err) => console.log(err));
 
     //Displaying ticket
     setTicketDisplay(true);
   };
 
+  useEffect(() => {
+    fetchParkingSpace();
+  }, []);
+
   return (
     <div className="carIn">
       <div className="parkingSpace">{renderParkingSpace()}</div>
-      <button className="btn-ticket" onClick={generateTicket}>
+      <button
+        className="btn-ticket"
+        onClick={() => generateTicket(findNearestSpace())}
+      >
         Generate Ticket
       </button>
       <div className={`ticket display-${ticketDisplay}`}>

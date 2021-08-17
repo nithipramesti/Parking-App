@@ -1,0 +1,46 @@
+{
+  "parkingSpace": [
+    {
+      "id": 1,
+      "filled": true,
+      "hour": 4,
+      "willCheckOut": false
+    },
+    {
+      "id": 2,
+      "filled": true,
+      "hour": 0,
+      "willCheckOut": false
+    },
+    {
+      "id": 3,
+      "filled": true,
+      "hour": 0,
+      "willCheckOut": false
+    },
+    {
+      "id": 4,
+      "filled": true,
+      "hour": 0,
+      "willCheckOut": false
+    },
+    {
+      "id": 5,
+      "filled": true,
+      "hour": 3,
+      "willCheckOut": false
+    },
+    {
+      "id": 6,
+      "filled": true,
+      "hour": 0,
+      "willCheckOut": false
+    },
+    {
+      "id": 7,
+      "filled": true,
+      "hour": 0,
+      "willCheckOut": false
+    }
+  ]
+}
