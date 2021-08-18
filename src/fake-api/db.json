@@ -3,12 +3,12 @@
     {
       "id": 1,
       "filled": true,
-      "hour": 4,
+      "hour": 0,
       "willCheckOut": false
     },
     {
       "id": 2,
-      "filled": true,
+      "filled": false,
       "hour": 0,
       "willCheckOut": false
     },
@@ -20,25 +20,25 @@
     },
     {
       "id": 4,
-      "filled": true,
+      "filled": false,
       "hour": 0,
       "willCheckOut": false
     },
     {
       "id": 5,
       "filled": true,
-      "hour": 3,
+      "hour": 0,
       "willCheckOut": false
     },
     {
       "id": 6,
-      "filled": true,
+      "filled": false,
       "hour": 0,
       "willCheckOut": false
     },
     {
       "id": 7,
-      "filled": true,
+      "filled": false,
       "hour": 0,
       "willCheckOut": false
     }

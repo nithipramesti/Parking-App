@@ -4,7 +4,7 @@ import "../assets/styles/CarOut.css";
 
 function CarOut() {
   const [parkingSpace, setParkingSpace] = useState([]);
-  const [willCheckOut, setWillCheckOut] = useState(0);
+  const [willCheckOutId, setWillCheckOutId] = useState(0);
 
   const fetchParkingSpace = () => {
     Axios.get("http://localhost:2000/parkingSpace")
@@ -14,21 +14,26 @@ function CarOut() {
       .catch((err) => console.log(err));
   };
 
-  const markingCheckOut = (val) => {
-    if (val.filled) {
-      alert(val.id);
-      Axios.patch(`http://localhost:2000/parkingSpace/${val.id}`, {
-        willCheckOut: true,
-      })
-        .then(() => {
-          fetchParkingSpace();
-        })
-        .catch((err) => console.log(err));
-      setWillCheckOut(val.id);
-    } else {
-      alert("nor");
-    }
-  };
+  // const markingCheckOut = (val) => {
+  //   if (willCheckOut != 0) {
+  //     document
+  //       .querySelector(`#park-${willCheckOut}`)
+  //       .classList.toggle("willCheckout");
+  //   }
+
+  //   if (val.filled) {
+  //     Axios.patch(`http://localhost:2000/parkingSpace/${val.id}`, {
+  //       willCheckOut: true,
+  //     })
+  //       .then(() => {
+  //         setWillCheckOut(val.id);
+  //         fetchParkingSpace();
+  //       })
+  //       .catch((err) => console.log(err));
+  //   } else {
+  //     alert("nor");
+  //   }
+  // };
 
   const checkOut = (id) => {
     Axios.patch(`http://localhost:2000/parkingSpace/${id}`, {
@@ -36,19 +41,33 @@ function CarOut() {
       hour: 0,
       willCheckOut: false,
     }).then(() => {
+      setWillCheckOutId(0);
       fetchParkingSpace();
     });
   };
 
   const renderParkingSpace = () => {
     return parkingSpace.map((val) => {
-      return (
-        <div
-          className={`parkingUnit filled-${val.filled} checkout-${val.willCheckOut}`}
-          onClick={() => markingCheckOut(val)}
-        >
-          <p>{val.id}</p>
-        </div>
+      return val.id === willCheckOutId ? (
+        <>
+          <div
+            className={`parkingUnit filled-${val.filled} willCheckout`}
+            id={`park-${val.id}`}
+            onClick={() => (val.filled ? setWillCheckOutId(val.id) : null)}
+          >
+            <p>{val.id}</p>
+          </div>
+        </>
+      ) : (
+        <>
+          <div
+            className={`parkingUnit filled-${val.filled}`}
+            id={`park-${val.id}`}
+            onClick={() => (val.filled ? setWillCheckOutId(val.id) : null)}
+          >
+            <p>{val.id}</p>
+          </div>
+        </>
       );
     });
   };
@@ -60,7 +79,7 @@ function CarOut() {
   return (
     <div className="carOut">
       <div className="parkingSpace">{renderParkingSpace()}</div>
-      <button className="btn-out" onClick={() => checkOut(willCheckOut)}>
+      <button className="btn-out" onClick={() => checkOut(willCheckOutId)}>
         Check Out Car
       </button>
     </div>
