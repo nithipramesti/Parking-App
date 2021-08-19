@@ -67,6 +67,7 @@ function CarOut() {
       }
     }
 
+    setWillCheckOut({ ...willCheckOut, fee });
     document.querySelector(".fee").innerHTML = `Rp ${fee}`;
     document.querySelector(".btn-checkout").classList.toggle("hide-display");
     document
@@ -74,8 +75,8 @@ function CarOut() {
       .classList.toggle("hide-display");
   };
 
-  const checkOut = (id) => {
-    Axios.patch(`http://localhost:2000/parkingSpace/${id}`, {
+  const checkOut = (idPark) => {
+    Axios.patch(`http://localhost:2000/parkingSpace/${idPark}`, {
       filled: false,
       timeFilled: "",
       dateFilled: "",
@@ -83,6 +84,8 @@ function CarOut() {
     }).then(() => {
       Axios.post("http://localhost:2000/history", {
         ...willCheckOut,
+        parkingNo: willCheckOut.id,
+        id: "",
       }).then(() => {
         setWillCheckOut({});
         fetchParkingSpace();
