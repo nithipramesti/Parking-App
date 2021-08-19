@@ -3,44 +3,52 @@
     {
       "id": 1,
       "filled": true,
-      "hour": 0,
-      "willCheckOut": false
+      "dateFilled": "18/8/2021",
+      "timeFilled": "23:14:6",
+      "hour": 0
     },
     {
       "id": 2,
-      "filled": false,
-      "hour": 0,
-      "willCheckOut": false
+      "filled": true,
+      "dateFilled": "19/8/2021",
+      "timeFilled": "21:40:40",
+      "hour": 0
     },
     {
       "id": 3,
       "filled": true,
-      "hour": 0,
-      "willCheckOut": false
+      "dateFilled": "19/8/2021",
+      "timeFilled": "21:40:43",
+      "hour": 0
     },
     {
       "id": 4,
       "filled": false,
-      "hour": 0,
-      "willCheckOut": false
+      "dateFilled": "",
+      "timeFilled": "",
+      "hour": 0
     },
     {
       "id": 5,
-      "filled": true,
-      "hour": 0,
-      "willCheckOut": false
+      "filled": false,
+      "dateFilled": "",
+      "timeFilled": "",
+      "hour": 0
     },
     {
       "id": 6,
       "filled": false,
-      "hour": 0,
-      "willCheckOut": false
+      "dateFilled": "",
+      "timeFilled": "",
+      "hour": 0
     },
     {
       "id": 7,
       "filled": false,
-      "hour": 0,
-      "willCheckOut": false
+      "dateFilled": "",
+      "timeFilled": "",
+      "hour": 0
     }
-  ]
+  ],
+  "history": []
 }

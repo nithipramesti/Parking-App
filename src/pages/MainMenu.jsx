@@ -5,27 +5,32 @@ import "../assets/styles/MainMenu.css";
 function MainMenu() {
   const [mainMenu] = useState([
     {
-      menu: "Car In",
-      subMenu: "Find available space and generate ticket",
+      menuTitle: "Car In",
+      link: "car-in",
+      subMenuTitle: "Find available space and generate ticket",
       icon: "car",
     },
     {
-      menu: "Car Out",
+      menuTitle: "Car Out",
+      link: "car-out",
       subMenu: "Check-out car & payment",
       icon: "car",
     },
     {
-      menu: "Status",
+      menuTitle: "Status",
+      link: "status",
       subMenu: "Check available parking space",
       icon: "car",
     },
     {
-      menu: "Profit",
+      menuTitle: "Profit",
+      link: "profit",
       subMenu: "Check current profit",
       icon: "car",
     },
     {
-      menu: "App",
+      menuTitle: "Exit",
+      link: "exit",
       subMenu: "Exit app",
       icon: "car",
     },
@@ -33,7 +38,7 @@ function MainMenu() {
 
   const renderMainMenu = () => {
     return mainMenu.map((val) => {
-      return <MainMenuComponent title={val.menu} subTitle={val.subMenu} />;
+      return <MainMenuComponent propsData={val} />;
     });
   };
 

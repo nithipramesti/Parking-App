@@ -37,13 +37,15 @@ function CarIn() {
     const hourNow = new Date().getHours();
     const minuteNow = new Date().getMinutes();
     const secondNow = new Date().getSeconds();
-    timeCome.innerHTML = `${hourNow}:${minuteNow}:${secondNow}`;
+    const timeComplete = `${hourNow}:${minuteNow}:${secondNow}`;
+    timeCome.innerHTML = timeComplete;
 
     //Date come
     const dateNow = new Date().getDate();
     const monthNow = new Date().getMonth();
     const yearNow = new Date().getFullYear();
-    dateCome.innerHTML = `${dateNow}/${monthNow + 1}/${yearNow}`;
+    const dateComplete = `${dateNow}/${monthNow + 1}/${yearNow}`;
+    dateCome.innerHTML = dateComplete;
 
     //Parking slot no
     parkingNo.innerHTML = findNearestSpace();
@@ -51,6 +53,8 @@ function CarIn() {
     //fill the space
     Axios.patch(`http://localhost:2000/parkingSpace/${id}`, {
       filled: true,
+      timeFilled: timeComplete,
+      dateFilled: dateComplete,
     })
       .then(() => {
         fetchParkingSpace();
