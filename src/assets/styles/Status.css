@@ -1,0 +1,43 @@
+.status {
+  align-self: center;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+table {
+  border-spacing: 0;
+}
+
+thead tr {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid #000;
+  text-align: center;
+  height: 40px;
+}
+
+thead td {
+  width: 220px;
+}
+
+tbody tr {
+  height: 60px;
+  text-align: center;
+  background-color: #fff;
+  margin-bottom: 20px;
+}
+
+.odd-row {
+  background-color: #3b507b13;
+}
+
+.table-no {
+  width: 150px;
+}
+
+.table-status {
+  width: 150px;
+}

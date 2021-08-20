@@ -4,6 +4,8 @@ import "./App.css";
 import MainMenu from "./pages/MainMenu";
 import CarIn from "./pages/CarIn";
 import CarOut from "./pages/CarOut";
+import Status from "./pages/Status";
+import Profit from "./pages/Profit";
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
           <Switch>
             <Route component={CarIn} path="/car-in" />
             <Route component={CarOut} path="/car-out" />
+            <Route component={Status} path="/status" />
+            <Route component={Profit} path="/profit" />
           </Switch>
         </div>
       </div>
