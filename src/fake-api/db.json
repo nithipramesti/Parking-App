@@ -37,7 +37,7 @@
     },
     {
       "id": 6,
-      "filled": false,
+      "filled": true,
       "dateFilled": "",
       "timeFilled": "",
       "hour": 0
